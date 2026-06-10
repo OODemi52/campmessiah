@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 
 import clsx from "clsx";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { Providers } from "./providers";
 
@@ -100,6 +101,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               </div>
             </footer>
           </div>
+          <SpeedInsights />
         </Providers>
       </body>
     </html>
