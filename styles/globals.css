@@ -1,0 +1,175 @@
+@import "tailwindcss";
+@import "@heroui/styles";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-sans: var(--font-sans), sans-serif;
+  --font-vietnam: var(--font-sans), sans-serif;
+  --font-bebas: var(--font-bebas), sans-serif;
+  --font-bungee: var(--font-bungee), sans-serif;
+  --font-mono: var(--font-mono), monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 8rem;
+  color-scheme: light;
+}
+
+body {
+  background: #13362f;
+  color: #027353;
+}
+
+.camp-registration-form [data-slot="label"] {
+  color: #13362f;
+  font-weight: 600;
+}
+
+.camp-registration-form [data-slot="description"] {
+  color: #4b5e59;
+}
+
+.camp-registration-form .input,
+.camp-registration-form .textarea {
+  background: #fffdf8;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #cbb79f;
+  box-shadow: none;
+  color: #13362f;
+}
+
+.camp-registration-form .input::placeholder,
+.camp-registration-form .textarea::placeholder {
+  color: #8d8275;
+}
+
+.camp-registration-form .input:focus,
+.camp-registration-form .input[data-focused="true"],
+.camp-registration-form .textarea:focus,
+.camp-registration-form .textarea[data-focused="true"] {
+  background: #fff;
+  border-color: #2181c2;
+  box-shadow: 0 0 0 4px rgb(33 129 194 / 16%);
+}
+
+.camp-registration-form .input[data-invalid="true"],
+.camp-registration-form .textarea[data-invalid="true"] {
+  border-color: #b42318;
+  box-shadow: 0 0 0 3px rgb(180 35 24 / 12%);
+}
+
+.camp-registration-form .camp-track-option {
+  background: #fffdf8;
+  border: 1px solid #cbb79f;
+  border-radius: 1rem;
+  color: #13362f;
+  padding: 1rem;
+  transition:
+    border-color 150ms ease,
+    background-color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.camp-registration-form .camp-track-option:hover {
+  border-color: #2181c2;
+}
+
+.camp-registration-form .camp-track-option .radio__control {
+  background: #fff;
+  border-color: #8f8070;
+  margin-top: 0.2rem;
+}
+
+.camp-registration-form .camp-track-option[aria-checked="true"],
+.camp-registration-form .camp-track-option[data-selected="true"] {
+  background: #eaf4fb;
+  border-color: #2181c2;
+  box-shadow: 0 0 0 2px rgb(33 129 194 / 12%);
+}
+
+.camp-registration-form .camp-track-option[aria-checked="true"] .radio__control,
+.camp-registration-form .camp-track-option[data-selected="true"] .radio__control {
+  background: #2181c2;
+  border-color: #2181c2;
+}
+
+.camp-registration-form .camp-track-option[aria-checked="true"] .radio__indicator:empty::before,
+.camp-registration-form .camp-track-option[data-selected="true"] .radio__indicator:empty::before {
+  background: #fff;
+}
+
+.camp-registration-form [data-slot="radiogroup"][data-invalid="true"] .camp-track-option {
+  border-color: #d7a49b;
+}
+
+@keyframes fade-up-in {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes faq-word-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes faq-drop-in {
+  from {
+    opacity: 0;
+    transform: translateY(-42px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up-reveal {
+  opacity: 0;
+  animation: fade-up-in 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  will-change: opacity, transform;
+}
+
+.faq-word-reveal {
+  opacity: 0;
+  animation: faq-word-in 0.72s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  will-change: opacity, transform;
+}
+
+.faq-drop-in {
+  opacity: 0;
+  animation: faq-drop-in 0.95s cubic-bezier(0.22, 1, 0.36, 1) 120ms forwards;
+  will-change: opacity, transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up-reveal {
+    opacity: 1;
+    animation: none;
+    transform: none;
+  }
+
+  .faq-word-reveal,
+  .faq-drop-in {
+    opacity: 1;
+    animation: none;
+    transform: none;
+  }
+}
